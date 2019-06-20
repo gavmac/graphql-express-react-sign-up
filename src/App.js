@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import { Button, Container } from 'reactstrap';
+import { Button, Container } from 'reactstrap'
+
 
 import PostViewer from './PostViewer';
 import PostEditor from './PostEditor';
+
+const config = {
+    issuer: '{process.env.REACT_APP_OKTA_ORG_URL}/oauth2/default',
+    redirect_uri: window.location.origin + '/implicit/callback',
+    client_id:'{process.env.REACT_APP_OKTA_CLIENT_ID}'
+}
 
 class App extends Component {
     state = {
