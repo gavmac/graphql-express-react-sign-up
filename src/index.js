@@ -9,12 +9,18 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import client from './apollo';
 import * as serviceWorker from './serviceWorker';
 
+const config = {
+    issuer: '{process.env.REACT_APP_OKTA_ORG_URL}/oauth2/default',
+    redirect_uri: window.location.origin + '/implicit/callback',
+    client_id:'{process.env.REACT_APP_OKTA_CLIENT_ID}'
+}
+
 ReactDOM.render(
     <BrowserRouter>
         <Security
-            issuer={`${process.env.REACT_APP_OKTA_ORG_URL}/oauth2/default`}
-            redirect_uri={`${window.location.origin}/implicit/callback`}
-            client_id={process.env.REACT_APP_OKTA_CLIENT_ID}
+            issuer={config.issuer}
+            client_id={config.client_id}
+            redirect_uri={config.redirect_uri}
         >
             <ApolloProvider client={client}>
                 <Route path="/implicit/callback" component={ImplicitCallback} />
