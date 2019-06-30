@@ -10,6 +10,15 @@ yarn-error.log*
 package-lock.json
 yarn.lock
 
+.env
+*.env
+
+
+.vs/
+.pk
+.pem
+.pub
+
 # IntelliJ project files
 *.iml
 *.iws
