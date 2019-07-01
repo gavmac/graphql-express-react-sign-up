@@ -25,8 +25,8 @@ const SUBMIT_POST = gql`
 
 const PostEditor = ({ post, onClose }) => (
     <FinalForm
-        onSubmit={async ({ id, author, body }) => {
-            const input = { id, author, body };
+        onSubmit={async ({ id, body }) => {
+            const input = { id, body };
 
             await client.mutate({
                 variables: { input },

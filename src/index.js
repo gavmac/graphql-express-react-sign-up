@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Security, ImplicitCallback } from '@okta/okta-react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
+
 import App from './App';
 import { ApolloProvider } from 'react-apollo';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -18,9 +19,9 @@ const config = {
 ReactDOM.render(
     <BrowserRouter>
         <Security
-            issuer={config.issuer}
-            client_id={config.client_id}
-            redirect_uri={config.redirect_uri}
+            issuer={"https://dev-951263.okta.com/oauth2/default"}
+            client_id={"0oaqwra4qWh70ThAr356"}
+            redirect_uri={window.location.origin + '/implicit/callback'}
         >
             <ApolloProvider client={client}>
                 <Route path="/implicit/callback" component={ImplicitCallback} />
